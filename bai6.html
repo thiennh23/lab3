@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<head>
+  <title>Document</title>
+  <style>
+    body {
+      display: grid;
+      place-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      display: grid;
+      grid-template-rows: auto auto;
+      grid-gap: 15px;
+      border: 1px solid black;
+      padding: 20px 40px;
+      justify-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="javascript:mailSomeOne()">E-Mail Someone!</a>
+    <button onclick="mailSomeOne()">E-Mail Someone!</button>
+  </div>
+
+  <script>
+    function mailSomeOne() {
+      const who = prompt("Enter recipient's email address:", "antispammer@earthling.net");
+      if (!who) return alert("Email address is required.");
+
+      const what = prompt("Enter the subject:", "none");
+      if (confirm(`Are you sure you want to mail ${who} with the subject of "${what}"?`)) {
+        location.href = `mailto:${who}?subject=${what}`;
+      }
+    }
+  </script>
+</body>
+</html>
