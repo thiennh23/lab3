@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<meta charset="UTF-8">
+<head>
+  <style>
+    body {
+      display: grid;
+      place-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f4f8; /* Light background color */
+      font-family: Arial, sans-serif;
+    }
+
+    #my-form {
+      border: 1px solid black;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-gap: 10px;
+      max-width: 300px;
+      width: 100%;
+      background-color: #ffffff; /* White background for form */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
+    }
+
+    #my-form label {
+      text-align: right;
+      padding-right: 10px;
+    }
+
+    #my-form input[type="text"],
+    #my-form input[type="password"] {
+      padding: 5px;
+    }
+
+    #my-form input[type="submit"] {
+      grid-column: span 2;
+      padding: 8px 0;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    #my-form input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .logo {
+      grid-column: span 2;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .logo img {
+      width: 80px; /* Adjust as needed */
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Welcome to My Website</h1>
+  <form id="my-form" name="form">
+
+    <div class="logo">
+        <img src="/logo2.png" alt="Website Logo">
+    </div>
+      
+
+    <label for="username">Username: </label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Password: </label>
+    <input type="password" id="password" name="password" required>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    document.forms.form.addEventListener("submit", validateForm);
+
+    function validateForm(ev) {
+      const username = ev.target.username.value;
+      const password = ev.target.password.value;
+
+      if (username === "dungta" && password === "123456") {
+        alert("Xin chào bạn đến với website");
+      } else {
+        ev.preventDefault(); // Prevent the page from reloading
+        alert("Thông tin đăng nhập không đúng");
+      }
+    }
+  </script>
+</body>
+</html>
